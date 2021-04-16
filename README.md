@@ -3,6 +3,9 @@ This is a movie recommend system project.
 
 
 
+
+
+
 项目数据流顺序:
 在后端代码中做日志埋点, 日志中的评分数据格式为UID|MID|SCORE|TIMESTAMP -> 通过flume从业务系统文件夹下的一个access.log文件中采集日志后, 输出到Kafka Stream的”log” topic中 -> 通过Kafka Stream的处理后, 将评分数据输出到”recommender” topic中 -> Spark Streaming订阅Kafka Stream的”recommender” topic, 再进行实时的流式处理.
 
